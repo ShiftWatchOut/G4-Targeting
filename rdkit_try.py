@@ -1,5 +1,8 @@
 from rdkit import Chem
 from rdkit.Chem import Draw
-smi = 'C[n+]1ccc(cc1)c2c3C=Cc(n3)c(c4cc[n+](C)cc4)c5ccc([nH]5)c(c6cc[n+](C)cc6)c7ccc(n7)c(c8C=Cc2[nH]8)c9cc[n+](C)cc9'
-m = Chem.MolFromSmiles(smi)
-Draw.MolToImageFile(m, "mol.jpg")
+from rdkit import DataStructs
+
+if __name__ == '__main__':
+    smi = 'C[C@@H]([C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@@H]4[C@@]3(CC[C@@H](C4)[N+](C)(C)C)C)C)[N+](C)(C)C.[Cl-].[Cl-]'
+    m = Chem.MolFromSmiles(smi)
+    Draw.MolToImageFile(m, 'mol.jpg', (800, 800))
