@@ -1,8 +1,11 @@
 from rdkit import Chem
 from rdkit.Chem import Draw
-from rdkit import DataStructs
+from rdkit.Chem.Draw import SimilarityMaps
+import matplotlib.pyplot as plt
 
 if __name__ == '__main__':
-    smi = 'C[C@@H]([C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@@H]4[C@@]3(CC[C@@H](C4)[N+](C)(C)C)C)C)[N+](C)(C)C.[Cl-].[Cl-]'
-    m = Chem.MolFromSmiles(smi)
-    Draw.MolToImageFile(m, 'mol.jpg', (800, 800))
+    targetmol = Chem.MolFromSmiles('O=C(CNNC1CCCC1)Nc2cccc(c2)c3cn(nn3)c4ccc5cc6ccc(cc6nc5c4)n7cc(nn7)c8cccc(NC(=O)CNNC9CCCC9)c8')
+    refmol = Chem.MolFromSmiles('O=C(CNN1CCCCC1)Nc2cccc(c2)c3cn(nn3)c4ccc5cc6ccc(cc6nc5c4)n7cc(nn7)c8cccc(NC(=O)CNN9CCCCC9)c8')
+    target_mol_simi_fig, maxweight = SimilarityMaps.GetSimilarityMapForFingerprint(refmol, targetmol,
+                                                                                   SimilarityMaps.GetMorganFingerprint)
+    plt.show()

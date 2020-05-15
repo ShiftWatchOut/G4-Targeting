@@ -33,7 +33,7 @@ def get_image(target):      # target 即是目标文件夹名
                 continue
             os.chdir(target)    # 跳转至目标文件夹
             m = Chem.MolFromSmiles(smile)
-            Draw.MolToImageFile(m, idx+'.jpg',(800, 800))
+            Draw.MolToFile(m, idx+'.png',(900, 900))
             last_idx = idx
             os.chdir('..')      # 最后创建好了返回上级文件夹
 
@@ -41,7 +41,7 @@ def get_image(target):      # target 即是目标文件夹名
 if __name__ == '__main__':
     os.chdir('classify')    # 转入分类文件夹
     i = 0
-    # makeFolder()
+    makeFolder()
     target_list = ['AGAGGGAGGGCGCTGGGAGGAGGGGCT', 'AGGGAGGGCGCTGGGAGGAGGG', 'AGGGCGGTGTGGGAAGAGGGAAGAGGGGGAGG',
                'AGGGGCGGGCGCGGGAGGAAGGGGGCGGGAGCGGGGCTG', 'AGGGTGGGGAGGGTGGG', 'AGGGTGGGGAGGGTGGGG',
                'AGGGTTAGGGTTAGGGTTAGGG', 'AGGGTTAGGGTTAGGGTTAGGGT', 'CCCGGGCGGGCGCGAGGGAGGGGAGG',
