@@ -20,8 +20,7 @@ def target2num():
         columns=['Value type', 'Value1', 'Value2', 'Target ID', 'activity', 'Formula', 'Ligand name'])
     # tmp_df.replace(target_list, range(0, 28), inplace=True)
     tmp_df.replace(tar_num, inplace=True)
-    # print(tmp_df)
-    tmp_df.dropna().to_excel('claen_data.xlsx', index=False)
+    tmp_df.dropna().to_excel('clean_data.xlsx', index=False)
 
 
 def generate_dict():
@@ -32,4 +31,4 @@ def generate_dict():
 
 
 if __name__ == '__main__':
-    target2num()
+    generate_dict()
